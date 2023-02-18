@@ -14,26 +14,57 @@ function LocalPrint(chaine) {
 function LocalPrintArray(chaine) {
   console.error(chaine);
 }
-
+/* 
+  2 2 9 1 2     // Mes notes de rocky total: 16
+  5             // Nombre de copains
+  2             // Meilleurs copain
+  10 7 1 7 3 0  // note copain total: 28
+  7 6 1 7 6 7   // note copain total: 27 diff:28
+  7 6 5 7 7 3   // note copain total: 32
+  8 4 2 9 5 4   // note copain total: 28
+  7 3 2 5 6 1   // note copain total: 23
+*/
 // -- Développez votre code dans la fonction ContestResponse ci-après
 function ContestResponse() {
   // Implémentez votre code ci-dessous
-   const nombreRestaurants = +input[0];
-   let meilleurMoyenne = 0;
-   for(let i = 1 ; i <= nombreRestaurants; i++){
-    const notesRestaurant = input[i];
-    const tableauNotes = notesRestaurant.split(' ');
 
-    let somme = 0;
-    for(let i = 0; i < tableauNotes.length; i++){
-      somme += Number(tableauNotes[i]);
+  //je créé un tableau avec toutes mes notes
+  const chaineMesNotes = input[0].split(' ');
+  let mesNotes = [];
+  for (let i = 0; i < chaineMesNotes.length; i++) {
+    mesNotes.push(+chaineMesNotes[i])
+  }
+
+  const nombreCopains = +input[1];
+  const meilleurCopains = +input[2];
+
+  let distances = [];
+  for (let i = 3; i < nombreCopains + 3; i++) {
+    // Je créé un tableau avec les notes de chaque copain
+    const chaineNotesCopains = input[i].split(' ');
+    const notesCopains = [];
+    for (let i = 0; i < chaineNotesCopains.length; i++) {
+      notesCopains.push(+chaineNotesCopains[i])
     }
-    const moyenne = somme / tableauNotes.length;
-    if(moyenne > meilleurMoyenne){
-      meilleurMoyenne = moyenne;
+
+    let distance = 0;
+    for (let i = 0; i < mesNotes.length; i++) {
+      // Je regarde les différence de notes entre lui et moi
+      distance += Math.abs(mesNotes[i] - notesCopains[i]);
     }
-   }
-   console.log(Math.ceil(meilleurMoyenne))
+    distances.push(distance);
+  }
+
+  let somme = 0;
+  for(let i = 0; i < meilleurCopains; i++){
+    // Je récupère l'index du copain avec la plus petite différence de notes
+    const positionMeilleurCopain = distances.indexOf(Math.min(...distances));
+    // Je récupère la note de rocky6 de ce meilleur copain
+    const noteRocky6 = +input[positionMeilleurCopain + 3].split(' ').slice(-1);
+    somme += noteRocky6;
+    distances[positionMeilleurCopain] = Number.MAX_VALUE;
+  }
+  console.log(Math.floor(somme / meilleurCopains))
 }
 // -- Fin de votre code
 
