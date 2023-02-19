@@ -15,14 +15,12 @@ function LocalPrintArray(chaine) {
   console.error(chaine);
 }
 /* 
-  2 2 9 1 2     // Mes notes de rocky total: 16
-  5             // Nombre de copains
-  2             // Meilleurs copain
-  10 7 1 7 3 0  // note copain total: 28
-  7 6 1 7 6 7   // note copain total: 27 diff:28
-  7 6 5 7 7 3   // note copain total: 32
-  8 4 2 9 5 4   // note copain total: 28
-  7 3 2 5 6 1   // note copain total: 23
+  31   49  
+  40   40
+  49   31
+  15   15
+  24   24
+  16   16
 */
 // -- Développez votre code dans la fonction ContestResponse ci-après
 function ContestResponse() {

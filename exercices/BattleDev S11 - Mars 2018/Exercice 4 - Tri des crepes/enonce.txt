@@ -27,23 +27,23 @@ Exemple
 Dans cet exemple, on considère des crêpes de taille comprise entre 20 et 45 cm, disposées en la pile suivante : 
 
 <BR>
-45<BR>
-40<BR>
-35<BR>
-20<BR>
-25<BR>
-30<BR>
+45
+40
+35
+20
+25
+30
 
 
 En mettant la spatule tout en bas et en retournant ainsi toute la pile, on obtient :
 
 <BR>
-30<BR>
-25<BR>
-20<BR>
-35<BR>
-40<BR>
-45<BR>
+30
+25
+20
+35
+40
+45
 
 
 Pour achever de trier, il ne reste plus qu'à retourner les 3 premières crêpes, en insérant la spatule entre la crêpe de 20 cm et celle de 35 cm :
